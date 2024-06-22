@@ -7,6 +7,7 @@ var release = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal touched_floor
+var active = true;
 
 func _physics_process(delta):
 	
@@ -17,6 +18,7 @@ func _physics_process(delta):
 		if not is_on_floor():
 			velocity.y += gravity * delta
 		else:
+			active = false
 			touched_floor.emit()
 	else:
 		var direction = Input.get_axis("ui_left", "ui_right")
@@ -30,3 +32,10 @@ func _physics_process(delta):
 		
 
 	move_and_slide()
+
+
+
+
+func _on_area_2d_2_area_entered(area):
+	print("a")
+	pass # Replace with function body.
