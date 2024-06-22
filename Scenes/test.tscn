@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://l3gxi3nmjcww"]
+
+[ext_resource type="Texture2D" uid="uid://b6uqqjcuojbit" path="res://Assets/Pictures/onlyOutline.png" id="1_dnai2"]
+[ext_resource type="Script" path="res://Scenes/test.gd" id="1_j7jp8"]
+
+[node name="Sprite2D" type="StaticBody2D"]
+position = Vector2(362, 324)
+scale = Vector2(2, 1.925)
+script = ExtResource("1_j7jp8")
+
+[node name="Area2D" type="Sprite2D" parent="."]
+position = Vector2(68.5, 154)
+scale = Vector2(2, 1.925)
+texture = ExtResource("1_dnai2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-130, -36, -131, 346, 268, 346, 268, -38, 256, -38, 256, 335, -119, 335, -119, -36)

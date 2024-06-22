@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ou6fuw63pgyl"]
+
+[ext_resource type="PackedScene" uid="uid://l3gxi3nmjcww" path="res://Scenes/test.tscn" id="1_g1l76"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_khjsd"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_khjsd")
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_g1l76")]
+position = Vector2(387, 264)
