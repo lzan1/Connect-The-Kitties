@@ -8,6 +8,7 @@ size = Vector2(84, 88)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(459, 139)
+collision_mask = 3
 safe_margin = 8.154
 script = ExtResource("1_5uhpc")
 

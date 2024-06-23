@@ -32,8 +32,7 @@ func _process(delta):
 	pass
 
 func on_coin_touched_floor():
-	char_arr.append('')
-	char_arr[-1] = CHAR.instantiate()
+	char_arr.append(CHAR.instantiate())
 	add_child(char_arr[-1])
 	char_arr[-2].touched_floor.disconnect(on_coin_touched_floor)
 	char_arr[-1].touched_floor.connect(on_coin_touched_floor)

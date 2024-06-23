@@ -8,6 +8,7 @@
 size = Vector2(128, 127.75)
 
 [node name="Area2D" type="Area2D"]
+collision_priority = 2.0
 script = ExtResource("1_5nh1f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
