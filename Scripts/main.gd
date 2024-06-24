@@ -6,6 +6,8 @@ const CHAR = preload("res://Main_Game/testplayer.tscn")
 
 var num_columns = 7
 var char_arr = ['']
+var box_width 
+var box_height
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#add character
@@ -17,8 +19,8 @@ func _ready():
 	#position_area2d(0,0,inst)
 	#add_child(inst)
 	#Set up collision2d areas
-	var box_width = get_box_dimensions().x
-	var box_height = get_box_dimensions().y
+	box_width = get_box_dimensions().x
+	box_height = get_box_dimensions().y
 	var column_width = box_width/num_columns
 	var column_height = box_height/2 + box.position.y
 	for i in range(1,num_columns+1):
@@ -43,6 +45,7 @@ func position_area2d(x,y, area):
 func get_box_dimensions():
 	#var width = 3
 	var width = box.get_node("Area2D").texture.get_width() * box.get_node("Area2D").scale.x
+	print(width)
 	var height = box.get_node("Area2D").texture.get_height() * box.get_node("Area2D").scale.y
 	#print( box.get_node("Area2D").texture.get_width())
 	#print(box.get_node("Area2D").scale.x)

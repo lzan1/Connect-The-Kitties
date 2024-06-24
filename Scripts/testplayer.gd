@@ -1,44 +1,52 @@
 extends CharacterBody2D
-
-
+@onready var box = self.get_parent().get_node("%box")
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var release
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal touched_floor 
 signal hide_background
+var release
+@onready var box_width = get_box_dimensions().x
+@onready var num_columns = self.get_parent().num_columns
+var column_width
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var active
+
 
 func _ready():
 	release = false
 	active = true
+	column_width = box_width/num_columns
 
 func _physics_process(delta):
-	
 	# Add the gravity.
 	if Input.is_action_just_pressed("ui_select"):
 		release = true
 	if release:
 		hide_background.emit()
 		if not is_on_floor():
-			velocity.y += gravity * delta
+			velocity.y += gravity * delta*2
 		else:
 			active = false
 			touched_floor.emit()
-			
 	else:
 		var direction = Input.get_axis("ui_left", "ui_right")
-		if direction:
-			velocity.x = direction * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
-		
-
+		if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
+			print(column_width)
+			position.x += column_width*direction
+		#if direction:
+			#position.x += 20*direction
+			##velocity.x = direction * SPEED
+		#else:
+			#velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
+
+func get_box_dimensions():
+	#var width = 3
+	var width = box.get_node("Area2D").texture.get_width() * box.get_node("Area2D").scale.x
+	var height = box.get_node("Area2D").texture.get_height() * box.get_node("Area2D").scale.y
+	#print( box.get_node("Area2D").texture.get_width())
+	#print(box.get_node("Area2D").scale.x)
+	return Vector2(width, height)
 
 
 func _on_area_2d_2_area_entered(area):

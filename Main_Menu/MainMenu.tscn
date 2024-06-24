@@ -16,9 +16,10 @@ grow_vertical = 2
 texture = ExtResource("1_dekub")
 
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(625, 368)
+position = Vector2(632, 368)
+scale = Vector2(1.18354, 1.18354)
 texture = ExtResource("2_txgwf")
 
-[node name="play_button" parent="." instance=ExtResource("3_igk81")]
+[node name="exit_button" parent="." instance=ExtResource("4_i8ju2")]
 
-[node name="exit_button" parent="play_button" instance=ExtResource("4_i8ju2")]
+[node name="play_button" parent="." instance=ExtResource("3_igk81")]

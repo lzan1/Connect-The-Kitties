@@ -13,17 +13,15 @@ func _on_body_exited(body):
 	if body is CharacterBody2D:
 		print(str(body.name) + " Body exited")
 		background.hide()
+		body.hide_background.disconnect(ay)
 
 func _on_body_entered(body):
 	if body is CharacterBody2D and body.active:
 		print(body.name + "entered")
-		body.set_collision_layer_value(1,true)
-		body.set_collision_mask_value(1,true)
+		#body.set_collision_layer_value(1,true)
+		#body.set_collision_mask_value(1,true)
 		background.show()
 		body.hide_background.connect(ay.bind(body))
-		#else:
-			#print("Not active. hiding")
-			#background.hide()
 
 func ay(body):
 	#arr.append(body)
