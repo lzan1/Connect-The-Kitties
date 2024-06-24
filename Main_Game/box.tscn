@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://l3gxi3nmjcww"]
+
+[ext_resource type="Texture2D" uid="uid://b6uqqjcuojbit" path="res://Assets/Pictures/onlyOutline.png" id="1_dnai2"]
+
+[sub_resource type="GDScript" id="GDScript_dx8ge"]
+script/source = "extends StaticBody2D
+"
+
+[node name="box" type="StaticBody2D"]
+light_mask = 3
+visibility_layer = 3
+scale = Vector2(1.04, 1)
+collision_layer = 7
+collision_mask = 7
+script = SubResource("GDScript_dx8ge")
+
+[node name="Area2D" type="Sprite2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(39.4231, 41)
+scale = Vector2(4.39423, 4.26)
+texture = ExtResource("1_dnai2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(39.4231, 43)
+scale = Vector2(2.19674, 2.19859)
+polygon = PackedVector2Array(-200, -192.727, -200, 192.727, 200, 192.727, 200, -192.208, 188.5, -192.208, 188.5, 180.779, -188, 181.299, -188, -192.727)

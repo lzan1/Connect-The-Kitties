@@ -1,7 +1,7 @@
 extends Node
 
-const area2d = preload("res://Scenes/area_2d.tscn")
-const CHAR = preload("res://Scenes/testplayer.tscn")
+const area2d = preload("res://Main_Game/area_2d.tscn")
+const CHAR = preload("res://Main_Game/testplayer.tscn")
 @onready var box = $box
 
 var num_columns = 7

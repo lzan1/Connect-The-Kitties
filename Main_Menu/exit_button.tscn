@@ -1,0 +1,120 @@
+[gd_scene load_steps=10 format=3 uid="uid://co022ud2apcsu"]
+
+[ext_resource type="FontFile" uid="uid://bjm2ng4mj2k78" path="res://Assets/Fonts/Dongle-Bold.ttf" id="1_ppcev"]
+[ext_resource type="Texture2D" uid="uid://dn6qwt2fpfsm7" path="res://Assets/Pictures/exitbtn_icon.png" id="2_rco66"]
+[ext_resource type="Texture2D" uid="uid://ccnv8np6n8fvu" path="res://Assets/Pictures/exitbtn_icon1.png" id="3_6hitk"]
+[ext_resource type="Script" path="res://Scripts/exit_button_sprite.gd" id="4_tu1em"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mex3t"]
+bg_color = Color(0.901961, 0.835294, 0.709804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.619608, 0.486275, 0.392157, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 80.0
+expand_margin_top = 7.0
+expand_margin_right = 80.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1jbq"]
+bg_color = Color(0.968627, 0.929412, 0.862745, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.619608, 0.486275, 0.392157, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 80.0
+expand_margin_top = 7.0
+expand_margin_right = 80.0
+
+[sub_resource type="Theme" id="Theme_sjkeg"]
+default_font = ExtResource("1_ppcev")
+default_font_size = 24
+Button/colors/font_color = Color(0.854902, 0.721569, 0.576471, 1)
+Button/colors/font_focus_color = Color(0.854902, 0.721569, 0.576471, 1)
+Button/colors/font_hover_color = Color(0.854902, 0.721569, 0.576471, 1)
+Button/colors/font_hover_pressed_color = Color(0.854902, 0.721569, 0.576471, 1)
+Button/colors/font_outline_color = Color(0.498039, 0.329412, 0.239216, 1)
+Button/colors/font_pressed_color = Color(0.733333, 0.619608, 0.509804, 1)
+Button/constants/outline_size = 7
+Button/font_sizes/font_size = 80
+Button/fonts/font = ExtResource("1_ppcev")
+Button/styles/focus = SubResource("StyleBoxFlat_mex3t")
+Button/styles/hover = SubResource("StyleBoxFlat_q1jbq")
+Button/styles/normal = SubResource("StyleBoxFlat_q1jbq")
+Button/styles/pressed = SubResource("StyleBoxFlat_mex3t")
+
+[sub_resource type="FontVariation" id="FontVariation_m6ppv"]
+base_font = ExtResource("1_ppcev")
+spacing_glyph = 7
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qqs0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rco66")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6hitk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rco66")
+}],
+"loop": true,
+"name": &"hovered",
+"speed": 5.0
+}]
+
+[node name="exit_button" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -167.0
+offset_top = -457.0
+offset_right = 180.0
+offset_bottom = -321.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_sjkeg")
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 4.0
+offset_right = 240.0
+offset_bottom = 124.0
+theme_override_fonts/font = SubResource("FontVariation_m6ppv")
+text = "EXIT"
+
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+position = Vector2(768, 853)
+scale = Vector2(1.1791, 1.1791)
+sprite_frames = SubResource("SpriteFrames_qqs0u")
+animation = &"hovered"
+autoplay = "default"
+frame_progress = 0.84413
+script = ExtResource("4_tu1em")
+
+[connection signal="mouse_entered" from="Control" to="Icon" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="Icon" method="_on_control_mouse_exited"]
+[connection signal="mouse_entered" from="Control/Button" to="Icon" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button" to="Icon" method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Control/Button" to="Icon" method="_on_button_pressed"]

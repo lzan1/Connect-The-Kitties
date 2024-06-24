@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://v828rj5ii0s7"]
+
+[ext_resource type="Texture2D" uid="uid://cjex3m1wkbksm" path="res://Assets/Pictures/menu_bkg1.png" id="1_dekub"]
+[ext_resource type="Texture2D" uid="uid://78i4vkyh1nxr" path="res://Assets/Pictures/logo_full.png" id="2_txgwf"]
+[ext_resource type="PackedScene" uid="uid://difoehdldsos6" path="res://Main_Menu/play_button.tscn" id="3_igk81"]
+[ext_resource type="PackedScene" uid="uid://co022ud2apcsu" path="res://Main_Menu/exit_button.tscn" id="4_i8ju2"]
+
+[node name="MainMenu" type="Node"]
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dekub")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(625, 368)
+texture = ExtResource("2_txgwf")
+
+[node name="play_button" parent="." instance=ExtResource("3_igk81")]
+
+[node name="exit_button" parent="play_button" instance=ExtResource("4_i8ju2")]
