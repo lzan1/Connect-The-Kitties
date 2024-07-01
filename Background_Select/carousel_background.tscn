@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgmie26e6p0xg"]
+
+[ext_resource type="Texture2D" uid="uid://cjex3m1wkbksm" path="res://Assets/Pictures/menu_bkg1.png" id="1_f1suf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7f6li"]
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00clw"]
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
+
+[sub_resource type="Theme" id="Theme_fvanj"]
+ItemList/styles/panel = SubResource("StyleBoxFlat_7f6li")
+Panel/styles/panel = SubResource("StyleBoxFlat_00clw")
+
+[node name="Node" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -21.0
+offset_top = -11.0
+offset_right = 379.0
+offset_bottom = 389.0
+theme = SubResource("Theme_fvanj")
+
+[node name="Panel" type="Panel" parent="Control"]
+clip_contents = true
+offset_left = -71.0
+offset_top = 3.0
+offset_right = 413.0
+offset_bottom = 413.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel"]
+offset_left = 80.0
+offset_top = 18.0
+offset_right = 667.0
+offset_bottom = 630.0
+texture = ExtResource("1_f1suf")
+expand_mode = 1

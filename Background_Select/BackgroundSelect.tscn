@@ -1,0 +1,139 @@
+[gd_scene load_steps=15 format=3 uid="uid://dogykn5fl82ro"]
+
+[ext_resource type="Texture2D" uid="uid://cjex3m1wkbksm" path="res://Assets/Pictures/menu_bkg1.png" id="1_h8m2k"]
+[ext_resource type="Texture2D" uid="uid://bbxikou8yn7bc" path="res://Assets/Pictures/play_arrow.png" id="2_1k5xy"]
+[ext_resource type="Texture2D" uid="uid://t5nimfbu4j0y" path="res://Assets/Pictures/back_arrow.png" id="2_i7mw7"]
+[ext_resource type="FontFile" uid="uid://chuow3mkvw5sm" path="res://Assets/Fonts/Dongle-Regular.ttf" id="2_jssgl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fpmi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nb5s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1krky"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v758p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_7s2ej"]
+Button/styles/focus = SubResource("StyleBoxFlat_3fpmi")
+Button/styles/hover = SubResource("StyleBoxFlat_6nb5s")
+Button/styles/normal = SubResource("StyleBoxFlat_1krky")
+Button/styles/pressed = SubResource("StyleBoxFlat_v758p")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhi3y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_5h22i"]
+Button/styles/focus = SubResource("StyleBoxFlat_bhi3y")
+Button/styles/hover = SubResource("StyleBoxFlat_bhi3y")
+Button/styles/normal = SubResource("StyleBoxFlat_bhi3y")
+Button/styles/pressed = SubResource("StyleBoxFlat_bhi3y")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smphr"]
+bg_color = Color(0.964706, 0.929412, 0.862745, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.839216, 0.741176, 0.635294, 1)
+corner_radius_top_left = 102
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 119.0
+expand_margin_right = 129.0
+
+[sub_resource type="Theme" id="Theme_ebbwm"]
+default_font_size = 1020
+Label/colors/font_color = Color(0.733333, 0.619608, 0.509804, 1)
+Label/font_sizes/font_size = 45
+Label/fonts/font = ExtResource("2_jssgl")
+Label/styles/normal = SubResource("StyleBoxFlat_smphr")
+
+[sub_resource type="FontVariation" id="FontVariation_evi58"]
+base_font = ExtResource("2_jssgl")
+spacing_glyph = 3
+spacing_space = 5
+spacing_top = -5
+spacing_bottom = -8
+
+[node name="BackgroundSelect" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_h8m2k")
+
+[node name="PlayControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1084.0
+offset_top = 1078.0
+offset_right = 1124.0
+offset_bottom = 1118.0
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayControl"]
+position = Vector2(28, 36)
+scale = Vector2(1.05469, 1.05469)
+texture = ExtResource("2_1k5xy")
+
+[node name="Button" type="Button" parent="PlayControl"]
+layout_mode = 0
+offset_left = -101.0
+offset_top = -42.0
+offset_right = 101.0
+offset_bottom = 96.0
+theme = SubResource("Theme_7s2ej")
+
+[node name="BackControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 120.0
+offset_top = 1069.0
+offset_right = 160.0
+offset_bottom = 1109.0
+
+[node name="Button" type="Button" parent="BackControl"]
+offset_left = -58.0
+offset_top = -41.0
+offset_right = 150.0
+offset_bottom = 96.0
+theme = SubResource("Theme_5h22i")
+
+[node name="Sprite2D" type="Sprite2D" parent="BackControl"]
+position = Vector2(28, 42)
+texture = ExtResource("2_i7mw7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.079
+anchor_right = 0.5
+anchor_bottom = 0.079
+offset_left = -156.0
+offset_top = 10.25
+offset_right = 268.0
+offset_bottom = 90.25
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_ebbwm")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.437
+anchor_top = 0.356
+anchor_right = 0.437
+anchor_bottom = 0.356
+offset_left = -185.288
+offset_top = -28.48
+offset_right = -145.288
+offset_bottom = -5.48
+theme_override_fonts/font = SubResource("FontVariation_evi58")
+text = "environment select"

@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://7r72pjlct6xf"]
+
+[ext_resource type="FontFile" uid="uid://chuow3mkvw5sm" path="res://Assets/Fonts/Dongle-Regular.ttf" id="1_le5we"]
+[ext_resource type="Script" path="res://Scripts/EnterName1.gd" id="2_wrqy8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umnex"]
+content_margin_left = 30.0
+content_margin_right = 30.0
+bg_color = Color(0.964706, 0.929412, 0.862745, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.282353, 0.176471, 0.129412, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="Theme" id="Theme_xfp2y"]
+LineEdit/colors/caret_color = Color(0.560784, 0.490196, 0.329412, 1)
+LineEdit/colors/font_color = Color(0.560784, 0.490196, 0.329412, 1)
+LineEdit/colors/font_placeholder_color = Color(0.560784, 0.490196, 0.329412, 0.423529)
+LineEdit/constants/caret_width = 2
+LineEdit/constants/minimum_character_width = 10
+LineEdit/font_sizes/font_size = 44
+LineEdit/fonts/font = ExtResource("1_le5we")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_umnex")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_umnex")
+
+[sub_resource type="FontVariation" id="FontVariation_2u1oh"]
+base_font = ExtResource("1_le5we")
+spacing_glyph = 2
+spacing_top = -20
+spacing_bottom = -20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qj4n1"]
+
+[node name="LineEdit" type="LineEdit"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = -35.0
+offset_right = 157.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xfp2y")
+theme_override_fonts/font = SubResource("FontVariation_2u1oh")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qj4n1")
+placeholder_text = "16 charas max"
+alignment = 1
+max_length = 18
+caret_blink = true
+caret_blink_interval = 0.46
+script = ExtResource("2_wrqy8")

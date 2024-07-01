@@ -25,7 +25,7 @@ func _ready():
 	var column_height = box_height/2 + box.position.y
 	for i in range(1,num_columns+1):
 		var inst = inst_area2d(column_width,column_height)
-		position_area2d(column_width*i+(box.position.x-box_width/2-20),box.position.y - (column_height-box_height-40)/2,inst)
+		position_area2d(column_width*i+(box.position.x-box_width/2-63),box.position.y - (column_height-box_height+2)/2,inst)
 		add_child(inst)
 
 

@@ -10,7 +10,7 @@ var release
 var column_width
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var active
-
+@onready var box_pos = get_box_pos()
 
 func _ready():
 	release = false
@@ -30,8 +30,9 @@ func _physics_process(delta):
 			touched_floor.emit()
 	else:
 		var direction = Input.get_axis("ui_left", "ui_right")
-		if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
-			print(column_width)
+		if Input.is_action_just_pressed("ui_left") and (position.x > (box_pos.x-box_width/2 + column_width)):
+			position.x += column_width*direction
+		if Input.is_action_just_pressed("ui_right") and (position.x < (box_pos.x+box_width/2 - column_width)):
 			position.x += column_width*direction
 		#if direction:
 			#position.x += 20*direction
@@ -47,6 +48,15 @@ func get_box_dimensions():
 	#print( box.get_node("Area2D").texture.get_width())
 	#print(box.get_node("Area2D").scale.x)
 	return Vector2(width, height)
+	
+func get_box_pos():
+	#var width = 3
+	var x = box.position.x
+	var y = box.position.y
+	#print( box.get_node("Area2D").texture.get_width())
+	#print(box.get_node("Area2D").scale.x)
+	print("box position:" + str(x))
+	return Vector2(x, y)
 
 
 func _on_area_2d_2_area_entered(area):

@@ -82,32 +82,38 @@ animations = [{
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 472.918
-offset_top = 609.918
-offset_right = 819.918
-offset_bottom = 745.918
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.5
+offset_top = -68.0
+offset_right = 173.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_11xi0")
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 4.0
-offset_right = 240.0
-offset_bottom = 124.0
+offset_left = 114.5
+offset_top = 56.0
+offset_right = 256.5
+offset_bottom = 176.0
 theme_override_fonts/font = SubResource("FontVariation_fnbml")
 text = "PLAY"
 
-[node name="Icon" type="AnimatedSprite2D" parent="."]
-position = Vector2(489.918, 668.918)
+[node name="Icon" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(38.418, 111.918)
 scale = Vector2(1.1791, 1.1791)
 sprite_frames = SubResource("SpriteFrames_0megj")
 animation = &"hovered"
 autoplay = "default"
 script = ExtResource("4_islgs")
 
-[connection signal="mouse_entered" from="Control" to="Icon" method="_on_control_mouse_entered"]
-[connection signal="mouse_exited" from="Control" to="Icon" method="_on_control_mouse_exited"]
-[connection signal="mouse_entered" from="Control/Button" to="Icon" method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="Control/Button" to="Icon" method="_on_button_mouse_exited"]
-[connection signal="pressed" from="Control/Button" to="Icon" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Control" to="Control/Icon" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="Control/Icon" method="_on_control_mouse_exited"]
+[connection signal="mouse_entered" from="Control/Button" to="Control/Icon" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button" to="Control/Icon" method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Control/Button" to="Control/Icon" method="_on_button_pressed"]

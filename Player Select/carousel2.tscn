@@ -1,0 +1,127 @@
+[gd_scene load_steps=12 format=3 uid="uid://bkx22hryhgg7n"]
+
+[ext_resource type="Script" path="res://Scripts/carousel2.gd" id="1_lc1k2"]
+[ext_resource type="FontFile" uid="uid://bjm2ng4mj2k78" path="res://Assets/Fonts/Dongle-Bold.ttf" id="2_r8dsb"]
+[ext_resource type="Texture2D" uid="uid://nisteeispbkm" path="res://Assets/Pictures/selectLeft_2.png" id="2_ra7w7"]
+[ext_resource type="Texture2D" uid="uid://i22kygcecqd1" path="res://Assets/Pictures/selectRight_2.png" id="3_kxdjf"]
+[ext_resource type="Texture2D" uid="uid://dh2yeas2jumon" path="res://Assets/Pictures/img1cat.png" id="5_qrl01"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y63h"]
+bg_color = Color(0.772549, 0.647059, 0.494118, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.282353, 0.176471, 0.129412, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+expand_margin_top = 5.0
+
+[sub_resource type="Theme" id="Theme_07868"]
+Label/colors/font_color = Color(0.955762, 0.891546, 0.836489, 1)
+Label/colors/font_outline_color = Color(0.431373, 0.282353, 0.176471, 1)
+Label/constants/outline_size = 6
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("2_r8dsb")
+Label/styles/normal = SubResource("StyleBoxFlat_8y63h")
+
+[sub_resource type="FontVariation" id="FontVariation_osdu1"]
+base_font = ExtResource("2_r8dsb")
+spacing_glyph = 5
+spacing_top = -2
+spacing_bottom = -7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0ipn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_tj5aj"]
+Button/styles/focus = SubResource("StyleBoxFlat_h0ipn")
+Button/styles/hover = SubResource("StyleBoxFlat_h0ipn")
+Button/styles/normal = SubResource("StyleBoxFlat_h0ipn")
+Button/styles/pressed = SubResource("StyleBoxFlat_h0ipn")
+
+[sub_resource type="Theme" id="Theme_05dbc"]
+Button/styles/focus = SubResource("StyleBoxFlat_h0ipn")
+Button/styles/hover = SubResource("StyleBoxFlat_h0ipn")
+Button/styles/normal = SubResource("StyleBoxFlat_h0ipn")
+Button/styles/pressed = SubResource("StyleBoxFlat_h0ipn")
+
+[node name="CatLabel2" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lc1k2")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(266, 55)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 266.0
+offset_bottom = 55.0
+theme = SubResource("Theme_07868")
+
+[node name="DisplayedName" type="Label" parent="Control"]
+custom_minimum_size = Vector2(490, 0)
+layout_mode = 0
+offset_left = -77.0
+offset_top = -1.0
+offset_right = 413.0
+offset_bottom = 73.0
+theme_override_fonts/font = SubResource("FontVariation_osdu1")
+text = "CAT TYPE"
+horizontal_alignment = 1
+
+[node name="left" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -64.0
+offset_top = 5.0
+offset_right = -24.0
+offset_bottom = 45.0
+
+[node name="Sprite2D" type="Sprite2D" parent="left"]
+position = Vector2(30.1638, 26.5)
+scale = Vector2(0.87037, 0.870371)
+texture = ExtResource("2_ra7w7")
+
+[node name="Button" type="Button" parent="left"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 51.0
+offset_bottom = 47.0
+theme = SubResource("Theme_tj5aj")
+
+[node name="right" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 340.0
+offset_top = 9.0
+offset_right = 380.0
+offset_bottom = 49.0
+
+[node name="Sprite2D" type="Sprite2D" parent="right"]
+position = Vector2(27.599, 23.4423)
+scale = Vector2(0.90527, 0.90527)
+texture = ExtResource("3_kxdjf")
+
+[node name="Button" type="Button" parent="right"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 46.0
+theme = SubResource("Theme_05dbc")
+
+[node name="DisplayedCat" type="Sprite2D" parent="."]
+position = Vector2(155, 220)
+scale = Vector2(0.082428, 0.082428)
+texture = ExtResource("5_qrl01")
+
+[connection signal="mouse_entered" from="left/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="left/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="left/Button" to="." method="_on_button_pressed_left"]
+[connection signal="mouse_entered" from="right/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="right/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="right/Button" to="." method="_on_button_pressed_right"]
