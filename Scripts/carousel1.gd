@@ -1,7 +1,9 @@
 extends Control
 var pointer = load("res://Assets/Pictures/pointinghand_100160.png")
 var type_names := ['BENGAL CAT', 'PERSIAN CAT', 'SERBIAN CAT']
-var type_display := [preload("res://Assets/Pictures/img1cat.png"), preload("res://Assets/Pictures/img2cat.png"), preload("res://Assets/Pictures/img3cat.png")]
+var type_display := [preload("res://Assets/Pictures/img1cat.png"), 
+					preload("res://Assets/Pictures/img2cat.png"), 
+					preload("res://Assets/Pictures/img3cat.png")]
 var curr_index = 0
 @onready var displayed_cat = $DisplayedCat
 @onready var displayed_name = $Control/DisplayedName
@@ -41,4 +43,7 @@ func _on_button_pressed_right():
 		curr_index +=1
 	displayed_name.text = type_names[curr_index]
 	displayed_cat.texture = type_display[curr_index]
+	
+func get_p1_cat():
+	return type_display[curr_index]
 

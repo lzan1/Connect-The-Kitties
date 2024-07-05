@@ -40,3 +40,6 @@ func _on_button_pressed_left():
 		curr_index -=1
 	displayed_name.text = type_names[curr_index]
 	displayed_cat.texture = type_display[curr_index]
+	
+func get_p2_cat():
+	return type_display[curr_index]

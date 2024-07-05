@@ -58,6 +58,6 @@ func get_box_pos():
 	print("box position:" + str(x))
 	return Vector2(x, y)
 
-
-func _on_area_2d_2_area_entered(area):
-	pass # Replace with function body.
+#
+#func _on_area_2d_2_area_entered(area):
+	#pass # Replace with function body.

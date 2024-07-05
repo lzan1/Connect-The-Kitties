@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://difoehdldsos6"]
 
 [ext_resource type="FontFile" uid="uid://bjm2ng4mj2k78" path="res://Assets/Fonts/Dongle-Bold.ttf" id="1_23eni"]
+[ext_resource type="Script" path="res://Scripts/play_button.gd" id="2_p0au2"]
 [ext_resource type="Texture2D" uid="uid://cr46y7a0404qb" path="res://Assets/Pictures/playbtn_icon.png" id="3_s451v"]
-[ext_resource type="Script" path="res://Scripts/play_button_sprite.gd" id="4_islgs"]
 [ext_resource type="Texture2D" uid="uid://buoboxy4ibo48" path="res://Assets/Pictures/playbtn_icon1.png" id="4_u6hsu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhwab"]
@@ -79,6 +79,7 @@ animations = [{
 }]
 
 [node name="play_button" type="Node"]
+script = ExtResource("2_p0au2")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -110,10 +111,9 @@ scale = Vector2(1.1791, 1.1791)
 sprite_frames = SubResource("SpriteFrames_0megj")
 animation = &"hovered"
 autoplay = "default"
-script = ExtResource("4_islgs")
 
-[connection signal="mouse_entered" from="Control" to="Control/Icon" method="_on_control_mouse_entered"]
-[connection signal="mouse_exited" from="Control" to="Control/Icon" method="_on_control_mouse_exited"]
-[connection signal="mouse_entered" from="Control/Button" to="Control/Icon" method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="Control/Button" to="Control/Icon" method="_on_button_mouse_exited"]
-[connection signal="pressed" from="Control/Button" to="Control/Icon" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_control_mouse_exited"]
+[connection signal="mouse_entered" from="Control/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

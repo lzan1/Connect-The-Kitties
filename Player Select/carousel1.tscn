@@ -33,14 +33,14 @@ spacing_glyph = 5
 spacing_top = -2
 spacing_bottom = -7
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwhxq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u33my"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Theme" id="Theme_xwk0l"]
-Button/styles/focus = SubResource("StyleBoxFlat_iwhxq")
-Button/styles/hover = SubResource("StyleBoxFlat_iwhxq")
-Button/styles/normal = SubResource("StyleBoxFlat_iwhxq")
-Button/styles/pressed = SubResource("StyleBoxFlat_iwhxq")
+Button/styles/focus = SubResource("StyleBoxFlat_u33my")
+Button/styles/hover = SubResource("StyleBoxFlat_u33my")
+Button/styles/normal = SubResource("StyleBoxFlat_u33my")
+Button/styles/pressed = SubResource("StyleBoxFlat_u33my")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd1uf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dogykn5fl82ro"]
+[gd_scene load_steps=17 format=3 uid="uid://dogykn5fl82ro"]
 
 [ext_resource type="Texture2D" uid="uid://cjex3m1wkbksm" path="res://Assets/Pictures/menu_bkg1.png" id="1_h8m2k"]
+[ext_resource type="Script" path="res://Scripts/BackgroundSelect.gd" id="1_ljr7v"]
 [ext_resource type="Texture2D" uid="uid://bbxikou8yn7bc" path="res://Assets/Pictures/play_arrow.png" id="2_1k5xy"]
 [ext_resource type="Texture2D" uid="uid://t5nimfbu4j0y" path="res://Assets/Pictures/back_arrow.png" id="2_i7mw7"]
 [ext_resource type="FontFile" uid="uid://chuow3mkvw5sm" path="res://Assets/Fonts/Dongle-Regular.ttf" id="2_jssgl"]
+[ext_resource type="PackedScene" uid="uid://cgmie26e6p0xg" path="res://Background_Select/carousel_background.tscn" id="3_cwlk5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fpmi"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -61,6 +63,7 @@ spacing_top = -5
 spacing_bottom = -8
 
 [node name="BackgroundSelect" type="Node"]
+script = ExtResource("1_ljr7v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -100,6 +103,7 @@ offset_right = 160.0
 offset_bottom = 1109.0
 
 [node name="Button" type="Button" parent="BackControl"]
+layout_mode = 0
 offset_left = -58.0
 offset_top = -41.0
 offset_right = 150.0
@@ -137,3 +141,14 @@ offset_right = -145.288
 offset_bottom = -5.48
 theme_override_fonts/font = SubResource("FontVariation_evi58")
 text = "environment select"
+
+[node name="BkgCarousel" parent="." instance=ExtResource("3_cwlk5")]
+
+[connection signal="mouse_entered" from="PlayControl/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="PlayControl/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="PlayControl/Button" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="BackControl/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="BackControl/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="BackControl/Button" to="." method="_on_back_pressed"]
+
+[editable path="BkgCarousel"]
