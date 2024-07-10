@@ -1,10 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://ou6fuw63pgyl"]
+[gd_scene load_steps=8 format=3 uid="uid://ou6fuw63pgyl"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_evi4q"]
+[ext_resource type="Theme" uid="uid://bya4jjsfbu2qp" path="res://Assets/envi_title.tres" id="2_35xvi"]
+[ext_resource type="Texture2D" uid="uid://bi2bs0ddfjr7r" path="res://Assets/Pictures/envi_bkg1.png" id="2_62uew"]
 [ext_resource type="PackedScene" uid="uid://l3gxi3nmjcww" path="res://Main_Game/box.tscn" id="2_f814c"]
+[ext_resource type="Theme" uid="uid://b2pokvs0btghu" path="res://game_turn.tres" id="2_husg8"]
+[ext_resource type="FontFile" uid="uid://bjm2ng4mj2k78" path="res://Assets/Fonts/Dongle-Bold.ttf" id="3_03p5k"]
+
+[sub_resource type="FontVariation" id="FontVariation_ijwwh"]
+base_font = ExtResource("3_03p5k")
+spacing_glyph = 4
+spacing_bottom = -5
 
 [node name="Game" type="Node"]
 script = ExtResource("1_evi4q")
+
+[node name="TurnIndicator" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -231.0
+offset_top = -157.0
+offset_right = 261.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_husg8")
+
+[node name="Label" type="Label" parent="TurnIndicator"]
+layout_mode = 2
+theme = ExtResource("2_35xvi")
+theme_override_fonts/font = SubResource("FontVariation_ijwwh")
+text = "WWWWWWWW'S TURN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Environment" type="TextureRect" parent="."]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_62uew")
+expand_mode = 2
 
 [node name="box" parent="." instance=ExtResource("2_f814c")]
 unique_name_in_owner = true

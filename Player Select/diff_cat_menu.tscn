@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=3 uid="uid://bj1vxuoiwssec"]
+
+[ext_resource type="FontFile" uid="uid://3pexqu21wku0" path="res://Assets/Fonts/Quicksand-Bold.ttf" id="1_ffjbf"]
+[ext_resource type="FontFile" uid="uid://chuow3mkvw5sm" path="res://Assets/Fonts/Dongle-Regular.ttf" id="1_nlqcm"]
+[ext_resource type="Script" path="res://Scripts/diff_cat_menu.gd" id="3_v4nb1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rutc0"]
+bg_color = Color(0.646485, 0.634322, 0.525027, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.454902, 0.360784, 0.294118, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnb40"]
+bg_color = Color(0.847059, 0.792157, 0.690196, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.454902, 0.360784, 0.294118, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+expand_margin_left = 60.0
+expand_margin_top = 35.0
+expand_margin_right = 60.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="Theme" id="Theme_axdev"]
+Button/colors/font_color = Color(0.94902, 0.917647, 0.854902, 1)
+Button/colors/font_outline_color = Color(0.454902, 0.360784, 0.294118, 1)
+Button/constants/outline_size = 8
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_ffjbf")
+Button/styles/focus = SubResource("StyleBoxFlat_rutc0")
+Button/styles/hover = SubResource("StyleBoxFlat_rutc0")
+Button/styles/normal = SubResource("StyleBoxFlat_rutc0")
+Button/styles/pressed = SubResource("StyleBoxFlat_rutc0")
+Label/colors/font_color = Color(0.631373, 0.521569, 0.411765, 1)
+Label/constants/line_spacing = 5
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("1_nlqcm")
+Label/styles/normal = SubResource("StyleBoxFlat_tnb40")
+VBoxContainer/constants/separation = 20
+
+[sub_resource type="FontVariation" id="FontVariation_fnlgo"]
+base_font = ExtResource("1_ffjbf")
+
+[sub_resource type="FontVariation" id="FontVariation_62uc0"]
+base_font = ExtResource("1_ffjbf")
+spacing_glyph = 4
+
+[node name="DiffCatMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_axdev")
+script = ExtResource("3_v4nb1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.384314, 0.32549, 0.258824, 0.4)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -39.5
+offset_right = 224.0
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_fnlgo")
+text = "Please select separate cats and 
+names for you and your partner.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OK" type="Button" parent="."]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 68.0
+offset_right = 57.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_62uc0")
+text = "OK"
+
+[connection signal="mouse_entered" from="OK" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="OK" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="OK" to="." method="_on_ok_pressed"]

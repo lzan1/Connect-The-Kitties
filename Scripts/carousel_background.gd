@@ -1,7 +1,7 @@
 extends Control
 
 var pointer = load("res://Assets/Pictures/pointinghand_100160.png")
-var envi_names := ['GREEN PASTURES', 'SILENT NIGHT', 'BLUE DAY']
+var envi_names := ['COZY KITCHEN', 'WARM BEDROOM', 'SUNNY BAKERY']
 var envi_display := [preload("res://Assets/Pictures/envi_bkg1.png"), 
 					preload("res://Assets/Pictures/envi_bkg2.png"), 
 					preload("res://Assets/Pictures/envi_bkg3.png")]

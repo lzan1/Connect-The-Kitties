@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqxjvbqvgkrn4"]
 
 [ext_resource type="Script" path="res://Scripts/area_2d.gd" id="1_dqbai"]
-[ext_resource type="Texture2D" uid="uid://cwwwcc22tjvkh" path="res://icon.svg" id="2_aafbb"]
+[ext_resource type="Texture2D" uid="uid://dj8ayoa53mwpk" path="res://Assets/Pictures/fade.png" id="2_muhwd"]
 [ext_resource type="Script" path="res://Scripts/Sprite2D.gd" id="3_b2gun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43auu"]
@@ -13,7 +13,7 @@ script = ExtResource("1_dqbai")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-texture = ExtResource("2_aafbb")
+texture = ExtResource("2_muhwd")
 script = ExtResource("3_b2gun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

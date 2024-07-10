@@ -1,7 +1,11 @@
 extends Control
 var pointer = load("res://Assets/Pictures/pointinghand_100160.png")
-var type_names := ['BENGAL CAT', 'PERSIAN CAT', 'ANTARTICA CAT']
-var type_display := [preload("res://Assets/Pictures/img1cat.png"), preload("res://Assets/Pictures/img2cat.png"), preload("res://Assets/Pictures/img3cat.png")]
+var type_names := ['TURKISH ANGORA', 'RUSSIAN BLUE', 'BENGAL CAT', 'CALICO CAT', 'MAINE COON CAT']
+var type_display := [preload("res://Assets/Pictures/img1cat.png"), 
+					preload("res://Assets/Pictures/img2cat.png"), 
+					preload("res://Assets/Pictures/img3cat.png"),
+					preload("res://Assets/Pictures/img4cat.png"),
+					preload("res://Assets/Pictures/img5cat.png")]
 var curr_index = 0
 @onready var displayed_cat = $DisplayedCat
 @onready var displayed_name = $Control/DisplayedName

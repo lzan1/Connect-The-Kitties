@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b2pokvs0btghu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5r016"]
+content_margin_left = 100.0
+bg_color = Color(0.968627, 0.929412, 0.862745, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.472518, 0.342479, 0.250633, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_top = 1.0
+
+[resource]
+Label/styles/normal = SubResource("StyleBoxFlat_5r016")

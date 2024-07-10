@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://l3gxi3nmjcww"]
 
-[ext_resource type="Texture2D" uid="uid://b6uqqjcuojbit" path="res://Assets/Pictures/onlyOutline.png" id="1_dnai2"]
+[ext_resource type="Texture2D" uid="uid://cawd84wdci56d" path="res://Assets/Pictures/box.png" id="1_6bvbp"]
 
 [node name="box" type="StaticBody2D"]
 light_mask = 3
@@ -12,9 +12,9 @@ collision_mask = 7
 [node name="Area2D" type="Sprite2D" parent="."]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(0, -2)
-scale = Vector2(4.39423, 4.26)
-texture = ExtResource("1_dnai2")
+position = Vector2(-2.21866, -12.9519)
+scale = Vector2(1.02573, 0.994397)
+texture = ExtResource("1_6bvbp")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 light_mask = 3

@@ -1,15 +1,15 @@
 extends CharacterBody2D
 @onready var box = self.get_parent().get_node("%box")
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 signal touched_floor 
 signal hide_background
-var release
 @onready var box_width = get_box_dimensions().x
 @onready var num_columns = self.get_parent().num_columns
 var column_width
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var release
 var active
+var curr_column
 @onready var box_pos = get_box_pos()
 
 func _ready():
@@ -58,6 +58,8 @@ func get_box_pos():
 	print("box position:" + str(x))
 	return Vector2(x, y)
 
-#
+func get_curr_col():
+	return curr_column
+
 #func _on_area_2d_2_area_entered(area):
 	#pass # Replace with function body.

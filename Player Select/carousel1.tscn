@@ -29,7 +29,7 @@ Label/styles/normal = SubResource("StyleBoxFlat_8y63h")
 
 [sub_resource type="FontVariation" id="FontVariation_w6d3m"]
 base_font = ExtResource("1_dnw0q")
-spacing_glyph = 5
+spacing_glyph = 3
 spacing_top = -2
 spacing_bottom = -7
 

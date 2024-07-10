@@ -3,8 +3,8 @@
 [ext_resource type="FontFile" uid="uid://bjm2ng4mj2k78" path="res://Assets/Fonts/Dongle-Bold.ttf" id="1_uswr2"]
 
 [resource]
-Label/colors/font_color = Color(0.705882, 0.666667, 0.560784, 1)
-Label/colors/font_outline_color = Color(0.292397, 0.232885, 0.13692, 1)
-Label/constants/outline_size = 6
-Label/font_sizes/font_size = 93
+Label/colors/font_color = Color(0.835294, 0.752941, 0.596078, 1)
+Label/colors/font_outline_color = Color(0.498039, 0.329412, 0.239216, 1)
+Label/constants/outline_size = 11
+Label/font_sizes/font_size = 57
 Label/fonts/font = ExtResource("1_uswr2")

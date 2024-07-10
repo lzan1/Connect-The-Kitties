@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://br881r6sp1t87"]
+[gd_scene load_steps=15 format=3 uid="uid://br881r6sp1t87"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerSelect.gd" id="1_2p4ur"]
 [ext_resource type="Texture2D" uid="uid://b21kxmkyfd3l5" path="res://Assets/Pictures/menu_bkg2.png" id="1_luobr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bkx22hryhgg7n" path="res://Player Select/carousel2.tscn" id="5_srb58"]
 [ext_resource type="Texture2D" uid="uid://t5nimfbu4j0y" path="res://Assets/Pictures/back_arrow.png" id="6_8yvai"]
 [ext_resource type="Texture2D" uid="uid://bfxe2iikjv72w" path="res://Assets/Pictures/next_arrow.png" id="6_xd0nq"]
+[ext_resource type="PackedScene" uid="uid://bj1vxuoiwssec" path="res://Player Select/diff_cat_menu.tscn" id="9_wq2h2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l13oj"]
 bg_color = Color(0.964706, 0.929412, 0.862745, 1)
@@ -153,6 +154,8 @@ offset_top = 1026.0
 offset_right = 270.0
 offset_bottom = 1167.0
 theme = SubResource("Theme_3epr5")
+
+[node name="DiffCatMenu" parent="." instance=ExtResource("9_wq2h2")]
 
 [connection signal="mouse_entered" from="NextControl/Next" to="." method="_on_next_mouse_entered"]
 [connection signal="mouse_exited" from="NextControl/Next" to="." method="_on_next_mouse_exited"]

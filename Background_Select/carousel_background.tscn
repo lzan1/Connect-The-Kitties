@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bi2bs0ddfjr7r" path="res://Assets/Pictures/envi_bkg1.png" id="2_2dtuk"]
 [ext_resource type="Texture2D" uid="uid://bkm8k0d33w2mv" path="res://Assets/Pictures/envi_right_arrow.png" id="2_w4qqc"]
 [ext_resource type="Theme" uid="uid://vdw6e17pchp7" path="res://Assets/transparent_button.tres" id="3_3yr4s"]
-[ext_resource type="Theme" uid="uid://bya4jjsfbu2qp" path="res://Assets/envi_title.tres" id="7_tg1dg"]
+[ext_resource type="Theme" uid="uid://cq5y3ib7jnhnk" path="res://Assets/game_turnind.tres" id="7_xgywu"]
 
 [node name="BkgCarousel" type="Control"]
 layout_mode = 3
@@ -69,7 +69,7 @@ texture = ExtResource("1_k1cvt")
 
 [node name="background_display" type="Sprite2D" parent="background_mask"]
 position = Vector2(-1.40143, 2.6084)
-scale = Vector2(1.00512, 1.00512)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_2dtuk")
 
 [node name="DisplayedBkg" type="Label" parent="."]
@@ -78,7 +78,7 @@ offset_left = 283.0
 offset_top = 191.0
 offset_right = 971.0
 offset_bottom = 327.0
-theme = ExtResource("7_tg1dg")
+theme = ExtResource("7_xgywu")
 text = "AYAWYAYA"
 horizontal_alignment = 1
 vertical_alignment = 1
