@@ -6,7 +6,7 @@ var type_display := [preload("res://Assets/Pictures/img1cat.png"),
 					preload("res://Assets/Pictures/img3cat.png"),
 					preload("res://Assets/Pictures/img4cat.png"),
 					preload("res://Assets/Pictures/img5cat.png")]
-var curr_index = 0
+var curr_index = 3
 @onready var displayed_cat = $DisplayedCat
 @onready var displayed_name = $Control/DisplayedName
 

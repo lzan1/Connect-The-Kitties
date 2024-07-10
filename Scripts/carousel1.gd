@@ -12,6 +12,7 @@ var curr_index = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.grab_focus() 
 	displayed_name.text = type_names[curr_index]
 	displayed_cat.texture = type_display[curr_index]
 
