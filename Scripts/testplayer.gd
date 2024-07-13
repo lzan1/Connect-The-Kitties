@@ -10,9 +10,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var release
 var active
 var curr_column
+var self_pos = self.position
 @onready var box_pos = get_box_pos()
 
 func _ready():
+	self.position = Vector2(635,142)
 	release = false
 	active = true
 	column_width = box_width/num_columns
@@ -24,7 +26,7 @@ func _physics_process(delta):
 	if release:
 		hide_background.emit()
 		if not is_on_floor():
-			velocity.y += gravity * delta*2
+			velocity.y += gravity * delta*2 *1.5
 		else:
 			active = false
 			touched_floor.emit()
