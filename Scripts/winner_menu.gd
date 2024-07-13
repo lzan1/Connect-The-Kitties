@@ -7,7 +7,8 @@ signal main_menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print(get_parent())
+	get_parent().pause.connect(on_pause)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,8 +29,13 @@ func display_cat(texture):
 	winner_cat.texture = texture
 
 func _on_play_again_pressed():
+	get_tree().paused = false
 	play_again.emit()
 
-
 func _on_main_menu_pressed():
+	get_tree().paused = false
 	main_menu.emit()
+
+func on_pause():
+	print("in_on_pause")
+	get_tree().paused = true

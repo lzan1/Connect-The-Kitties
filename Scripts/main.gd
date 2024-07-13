@@ -90,4 +90,3 @@ func set_player(p1, p2, p1_n, p2_n):
 	p1_name = p1_n
 	p2_name = p2_n
 	
-

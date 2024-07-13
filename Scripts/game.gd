@@ -8,6 +8,7 @@ const player_select_scene = preload("res://Main_Game/testplayer.tscn")
 @onready var label = $TurnIndicator/Label
 var a = true
 @onready var character_body_2d = $CharacterBody2D
+signal pause
 
 var num_columns = 7
 var num_rows = 8
@@ -101,6 +102,9 @@ func on_coin_touched_floor():
 			winner_menu.display_winner(p1Name)
 			winner_menu.display_cat(p1Cat)
 			winner_menu.show()
+			char_p2_arr[-1].touched_floor.disconnect(on_coin_touched_floor)
+			get_tree().paused = true
+			
 			print("Winner is player 1!")
 	else:
 		#Add new p1 cat
@@ -118,6 +122,8 @@ func on_coin_touched_floor():
 			winner_menu.display_winner(p2Name)
 			winner_menu.display_cat(p2Cat)
 			winner_menu.show()
+			char_p1_arr[-1].touched_floor.disconnect(on_coin_touched_floor)
+			get_tree().paused = true
 			print("player 2 winner!")
 	#Get row index of last cat
 	

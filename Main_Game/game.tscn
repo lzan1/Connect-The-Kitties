@@ -57,4 +57,5 @@ position = Vector2(642, 639)
 visible = false
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("8_s86e5")]
+process_mode = 1
 position = Vector2(635, 142)
