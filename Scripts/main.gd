@@ -44,8 +44,7 @@ func match_scene():
 			node_with_signal.nextPlay.connect(change_scene.bind(bkg_select, main_game))
 		"Game":
 			curr_scene.get_node("Environment").texture = display_envi
-			curr_scene.get_node("CharacterBody2D").get_node("Sprite").texture = display_p1
-			curr_scene.get_node("CharacterBody2D").position = Vector2(635,142)
+			curr_scene.get_node("Control").get_node("CharacterBody2D").get_node("Sprite").texture = display_p1
 			curr_scene.get_node("TurnIndicator").get_node("Label").text = str(p1_name).to_upper() + "'S TURN"
 			curr_scene.p1Cat = display_p1
 			curr_scene.p2Cat = display_p2

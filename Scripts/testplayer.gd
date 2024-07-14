@@ -4,7 +4,7 @@ const SPEED = 300.0
 signal touched_floor 
 signal hide_background
 @onready var box_width = get_box_dimensions().x
-@onready var num_columns = self.get_parent().num_columns
+@onready var num_columns = self.get_parent().get_parent().num_columns
 var column_width
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var release
@@ -44,10 +44,10 @@ func _physics_process(delta):
 		var direction = Input.get_axis("ui_left", "ui_right")
 		if Input.is_action_just_pressed("ui_left") and (position.x > (box_pos.x-box_width/2 + column_width)):
 			position.x += column_width*direction
-			curr_column = get_parent().get_next(curr_column,-1)
+			curr_column = get_parent().get_parent().get_next(curr_column,-1)
 		if Input.is_action_just_pressed("ui_right") and (position.x < (box_pos.x+box_width/2 - column_width)):
 			position.x += column_width*direction
-			curr_column = get_parent().get_next(curr_column,1)
+			curr_column = get_parent().get_parent().get_next(curr_column,1)
 		#if direction:
 			#position.x += 20*direction
 			##velocity.x = direction * SPEED
@@ -56,7 +56,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func check_releasable():
-	return get_parent().check_col_full(curr_column)
+	return get_parent().get_parent().check_col_full(curr_column)
 
 func get_box_dimensions():
 	#var width = 3

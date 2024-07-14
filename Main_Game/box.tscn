@@ -14,12 +14,13 @@ script = ExtResource("1_iowxm")
 [node name="Area2D" type="Sprite2D" parent="."]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(-2.21866, -12.9519)
+position = Vector2(4.80769, -13)
 scale = Vector2(1.02573, 0.994397)
 texture = ExtResource("1_6bvbp")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 light_mask = 3
 visibility_layer = 3
+position = Vector2(2.88462, 0)
 scale = Vector2(2.19674, 2.19859)
-polygon = PackedVector2Array(-200, -192.727, -200, 192.727, 200, 192.727, 200, -192.208, 188.5, -192.208, 188.5, 180.779, -188, 181.299, -188, -192.727)
+polygon = PackedVector2Array(-200, -192.727, -200, 192.727, 200, 192.727, 200, -192.208, 188.5, -192.208, 188.5, 180.779, -191.28, 181.935, -190.405, -192.396)

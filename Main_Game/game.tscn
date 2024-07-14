@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ou6fuw63pgyl"]
+[gd_scene load_steps=12 format=3 uid="uid://ou6fuw63pgyl"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_evi4q"]
 [ext_resource type="Theme" uid="uid://bya4jjsfbu2qp" path="res://Assets/envi_title.tres" id="2_35xvi"]
@@ -8,7 +8,6 @@
 [ext_resource type="FontFile" uid="uid://bjm2ng4mj2k78" path="res://Assets/Fonts/Dongle-Bold.ttf" id="3_03p5k"]
 [ext_resource type="PackedScene" uid="uid://d27d1h0tsujyo" path="res://Main_Game/winner_menu.tscn" id="7_ou3kl"]
 [ext_resource type="PackedScene" uid="uid://c0qaccwnlq6i4" path="res://Main_Game/tied_menu.tscn" id="7_ub1q5"]
-[ext_resource type="PackedScene" uid="uid://cbmkagkucwxys" path="res://Main_Game/testplayer.tscn" id="8_s86e5"]
 [ext_resource type="AudioStream" uid="uid://c00ntq2qrx6yt" path="res://Assets/Audio/win.mp3" id="10_ipcev"]
 [ext_resource type="AudioStream" uid="uid://b3kpw1d7bxnyp" path="res://Assets/Audio/tie_sound.mp3" id="10_vdku6"]
 
@@ -52,13 +51,18 @@ grow_vertical = 2
 texture = ExtResource("2_62uew")
 expand_mode = 2
 
-[node name="box" parent="." instance=ExtResource("2_f814c")]
-unique_name_in_owner = true
-position = Vector2(642, 639)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("8_s86e5")]
-process_mode = 1
-position = Vector2(635, 142)
+[node name="box" parent="Control" instance=ExtResource("2_f814c")]
+unique_name_in_owner = true
 
 [node name="tied_menu" parent="." instance=ExtResource("7_ub1q5")]
 visible = false

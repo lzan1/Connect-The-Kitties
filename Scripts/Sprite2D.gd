@@ -6,7 +6,6 @@ func _ready():
 	#texture
 	var collision_x = get_collion_size().x
 	var collision_y = get_collion_size().y
-	#var transf_x = collision_x/
 	scale.x = collision_x/texture.get_size().x
 	scale.y = collision_y/texture.get_size().y
 	#print(name)

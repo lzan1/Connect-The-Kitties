@@ -2,7 +2,7 @@ extends Node
 
 @onready var win_sound = $win_sound
 @onready var tie_sound = $tie_sound
-
+@onready var boxControl = $Control
 @onready var tied_menu = $tied_menu
 @onready var winner_menu = $winner_menu
 const area2d = preload("res://Main_Game/area_2d.tscn")
@@ -11,7 +11,6 @@ const player_select_scene = preload("res://Main_Game/testplayer.tscn")
 @onready var box = %box
 @onready var label = $TurnIndicator/Label
 var a = true
-@onready var character_body_2d = $CharacterBody2D
 signal pause
 
 var num_columns = 7
@@ -46,22 +45,10 @@ func _ready():
 	#Signals are better for little scenes far down the tree (eg. character walks into area)
 	winner_menu.hide()
 	#add character
-	char_p1_arr.append(character_body_2d)
-	#add_child(char_p1_arr[-1])
-	#char_p1_arr[-1].position = Vector2(635,142)
-	char_p1_arr[-1].get_node("Sprite").texture = p1Cat
+	add_cat(char_p1_arr, p1Cat)
 	char_p1_arr[-1].touched_floor.connect(on_coin_touched_floor)
 	#initialize area2d bkgs
-	box_width = get_box_dimensions().x
-	box_height = get_box_dimensions().y
-	var column_width = box_width/num_columns
-	var column_height = box_height/2 + box.position.y
-	for i in range(1,num_columns+1):
-		var inst = inst_area2d(column_width,column_height, i-1)
-		position_area2d(column_width*i+(box.position.x-box_width/2-63),box.position.y - (column_height-box_height+40)/2,inst)
-		area2d_arr.append(inst)
-		area2d_dict[inst] = i-1
-		add_child(inst)
+	box.set_num_cols(num_columns)
 	
 	#initialize array 
 	for i in range(num_rows):
@@ -69,7 +56,7 @@ func _ready():
 		for j in range(num_columns):
 			new_row.append(0)
 		table_arr.append(new_row)
-	char_p1_arr[-1].position = Vector2(635,142)
+	print(self.get_children())
 
 	
 func on_coin_touched_floor():
@@ -78,12 +65,7 @@ func on_coin_touched_floor():
 	var row_index
 	change_indicator()
 	if turn%2 == 0:
-		#Add new p2 cat
-		char_p2_arr.append(CHAR.instantiate())
-		add_child(char_p2_arr[-1])
-		char_p2_arr[-1].position = Vector2(635,142)
-		char_p2_arr[-1].get_node("Sprite").texture = p2Cat
-		char_p2_arr[-1].curr_column = area2d_dict.find_key(3)
+		add_cat(char_p2_arr, p2Cat)
 		#Get col index of last cat
 		col_dropped_index = area2d_dict[char_p1_arr[-1].get_curr_col()]
 		char_p1_arr[-1].touched_floor.disconnect(on_coin_touched_floor)
@@ -94,11 +76,7 @@ func on_coin_touched_floor():
 			win(p1Name, p1Cat)
 	else:
 		#Add new p1 cat
-		char_p1_arr.append(CHAR.instantiate())
-		add_child(char_p1_arr[-1])
-		char_p1_arr[-1].position = Vector2(635,142)
-		char_p1_arr[-1].get_node("Sprite").texture = p1Cat
-		char_p1_arr[-1].curr_column = area2d_dict.find_key(3)
+		add_cat(char_p1_arr, p1Cat)
 		#Get col index of last cat
 		col_dropped_index = area2d_dict[char_p2_arr[-1].get_curr_col()]
 		char_p2_arr[-1].touched_floor.disconnect(on_coin_touched_floor)
@@ -109,6 +87,14 @@ func on_coin_touched_floor():
 			win(p2Name, p2Cat)
 	if board_full():
 		tie(p1Cat,p2Cat)
+
+func add_cat(arr, displayC):
+	arr.append(CHAR.instantiate())
+	boxControl.add_child(arr[-1])
+	arr[-1].get_node("Sprite").texture = displayC
+	arr[-1].curr_column = area2d_dict.find_key(3)
+	arr[-1].position.x += 4
+	arr[-1].position.y -= 500
 
 func board_full():
 	for row in table_arr:
@@ -220,6 +206,7 @@ func set_names(p1, p2):
 	p2Name = p2
 
 func get_next(col, dir):
+	print(area2d_dict)
 	var ind = area2d_dict[col]
 	return area2d_dict.find_key(ind + dir)
 
