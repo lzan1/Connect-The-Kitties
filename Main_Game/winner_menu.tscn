@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b6th23mnei3iw" path="res://Assets/Pictures/winner_pawsR.png" id="3_p8tc3"]
 [ext_resource type="Texture2D" uid="uid://boq3v5f5qcqmk" path="res://Assets/Pictures/winner_pawsR2.png" id="4_n47gu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqgmq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugmia"]
 bg_color = Color(0.705882, 0.682353, 0.560784, 1)
 border_width_left = 3
 border_width_top = 3
@@ -30,11 +30,11 @@ Button/colors/font_outline_color = Color(0.678431, 0.556863, 0.435294, 1)
 Button/constants/outline_size = 7
 Button/font_sizes/font_size = 60
 Button/fonts/font = ExtResource("1_ns2ki")
-Button/styles/disabled = SubResource("StyleBoxFlat_tqgmq")
-Button/styles/focus = SubResource("StyleBoxFlat_tqgmq")
-Button/styles/hover = SubResource("StyleBoxFlat_tqgmq")
-Button/styles/normal = SubResource("StyleBoxFlat_tqgmq")
-Button/styles/pressed = SubResource("StyleBoxFlat_tqgmq")
+Button/styles/disabled = SubResource("StyleBoxFlat_ugmia")
+Button/styles/focus = SubResource("StyleBoxFlat_ugmia")
+Button/styles/hover = SubResource("StyleBoxFlat_ugmia")
+Button/styles/normal = SubResource("StyleBoxFlat_ugmia")
+Button/styles/pressed = SubResource("StyleBoxFlat_ugmia")
 Label/colors/font_color = Color(0.964706, 0.929412, 0.862745, 1)
 Label/colors/font_outline_color = Color(0.462363, 0.315595, 0.222544, 1)
 Label/constants/outline_size = 10
@@ -74,7 +74,7 @@ animations = [{
 base_font = ExtResource("1_1b0jh")
 spacing_glyph = 7
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pp4ep"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xoato"]
 bg_color = Color(0.964706, 0.929412, 0.862745, 1)
 border_width_left = 3
 border_width_top = 3
@@ -90,7 +90,7 @@ corner_radius_bottom_left = 100
 Label/colors/font_color = Color(0.678431, 0.556863, 0.435294, 1)
 Label/constants/outline_size = 0
 Label/font_sizes/font_size = 45
-Label/styles/normal = SubResource("StyleBoxFlat_pp4ep")
+Label/styles/normal = SubResource("StyleBoxFlat_xoato")
 
 [sub_resource type="FontVariation" id="FontVariation_yneg2"]
 base_font = ExtResource("1_1b0jh")
@@ -103,7 +103,7 @@ base_font = ExtResource("1_ns2ki")
 spacing_glyph = 1
 spacing_bottom = -3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fhd1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbxgg"]
 bg_color = Color(0.819608, 0.690196, 0.537255, 1)
 border_width_left = 3
 border_width_top = 3
@@ -118,10 +118,10 @@ expand_margin_left = 30.0
 expand_margin_right = 30.0
 
 [sub_resource type="Theme" id="Theme_v7mce"]
-Button/styles/disabled = SubResource("StyleBoxFlat_2fhd1")
-Button/styles/focus = SubResource("StyleBoxFlat_2fhd1")
-Button/styles/hover = SubResource("StyleBoxFlat_2fhd1")
-Button/styles/normal = SubResource("StyleBoxFlat_2fhd1")
+Button/styles/disabled = SubResource("StyleBoxFlat_nbxgg")
+Button/styles/focus = SubResource("StyleBoxFlat_nbxgg")
+Button/styles/hover = SubResource("StyleBoxFlat_nbxgg")
+Button/styles/normal = SubResource("StyleBoxFlat_nbxgg")
 
 [node name="winner_menu" type="Control"]
 process_mode = 3
@@ -193,7 +193,6 @@ texture = ExtResource("1_jd5v4")
 position = Vector2(164, -14.5)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_s3ebp")
-autoplay = "default"
 frame = 1
 frame_progress = 0.23802
 
@@ -201,7 +200,6 @@ frame_progress = 0.23802
 position = Vector2(-168, -14.5)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_qcv6u")
-autoplay = "default"
 frame_progress = 0.670054
 
 [node name="NameDisplay" type="Label" parent="Control"]
@@ -269,9 +267,19 @@ theme = SubResource("Theme_v7mce")
 theme_override_fonts/font = SubResource("FontVariation_mvva8")
 text = "Main Menu"
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
 [connection signal="mouse_entered" from="Control/PlayAgain" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Control/PlayAgain" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Control/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="mouse_entered" from="Control/MainMenu" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Control/MainMenu" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Control/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

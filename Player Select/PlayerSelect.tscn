@@ -86,76 +86,128 @@ offset_bottom = -5.48
 theme_override_fonts/font = SubResource("FontVariation_sj2t4")
 text = "player character select"
 
-[node name="Player1" type="Node" parent="."]
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -428.0
+offset_right = 243.0
+offset_bottom = 491.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="LineEdit1" parent="Player1" instance=ExtResource("3_4loww")]
-offset_left = -248.0
-offset_top = -421.0
-offset_right = 242.0
-offset_bottom = -355.0
+[node name="Player1" type="Control" parent="Control2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="LineEdit1" parent="Control2/Player1" instance=ExtResource("3_4loww")]
+layout_mode = 1
+offset_left = -241.0
+offset_top = 29.0
+offset_right = 249.0
+offset_bottom = 95.0
 placeholder_text = "18 characters max"
 
-[node name="CatLabel1" parent="Player1" instance=ExtResource("4_232pt")]
-offset_left = 454.0
-offset_top = 268.0
-offset_right = 454.0
-offset_bottom = 268.0
+[node name="CatLabel1" parent="Control2/Player1" instance=ExtResource("4_232pt")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -164.0
+offset_top = 93.0
+offset_right = -164.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="Player2" type="Node" parent="."]
+[node name="Player2" type="Control" parent="Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="LineEdit2" parent="Player2" instance=ExtResource("3_4loww")]
-offset_left = -245.0
-offset_top = 42.0
-offset_right = 245.0
-offset_bottom = 108.0
+[node name="LineEdit2" parent="Control2/Player2" instance=ExtResource("3_4loww")]
+layout_mode = 1
+offset_left = -242.0
+offset_top = -8.5
+offset_right = 248.0
+offset_bottom = 57.5
 placeholder_text = "18 characters max"
 
-[node name="CatLabel2" parent="Player2" instance=ExtResource("5_srb58")]
-offset_left = 457.0
-offset_top = 731.0
-offset_right = 457.0
-offset_bottom = 731.0
+[node name="CatLabel2" parent="Control2/Player2" instance=ExtResource("5_srb58")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 53.0
+offset_right = 5.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="NextControl" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 915.0
-offset_top = 13.0
-offset_right = 955.0
-offset_bottom = 53.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="NextControl"]
-position = Vector2(191.551, 1086)
+position = Vector2(-99.449, -107)
 scale = Vector2(1.0624, 1.0678)
 texture = ExtResource("6_xd0nq")
 
 [node name="Next" type="Button" parent="NextControl"]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 1026.0
-offset_right = 270.0
-offset_bottom = 1167.0
+offset_left = -228.0
+offset_top = -167.0
+offset_right = -21.0
+offset_bottom = -25.9996
 theme = SubResource("Theme_3epr5")
 
 [node name="BackControl" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
 offset_right = 40.0
-offset_bottom = 40.0
+grow_vertical = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="BackControl"]
-position = Vector2(147, 1111)
+position = Vector2(151, -90)
 texture = ExtResource("6_8yvai")
 
 [node name="Back" type="Button" parent="BackControl"]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 1026.0
-offset_right = 270.0
-offset_bottom = 1167.0
+offset_left = 67.0
+offset_top = -175.0
+offset_right = 274.0
+offset_bottom = -34.0
 theme = SubResource("Theme_3epr5")
 
 [node name="DiffCatMenu" parent="." instance=ExtResource("9_wq2h2")]
+visible = false
 
 [connection signal="mouse_entered" from="NextControl/Next" to="." method="_on_next_mouse_entered"]
 [connection signal="mouse_exited" from="NextControl/Next" to="." method="_on_next_mouse_exited"]

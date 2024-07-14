@@ -1,4 +1,5 @@
 extends Control
+@onready var arrow_sfx = $arrow_sfx
 
 var pointer = load("res://Assets/Pictures/pointinghand_100160.png")
 var envi_names := ['COZY KITCHEN', 'WARM BEDROOM', 'SUNNY BAKERY']
@@ -16,14 +17,8 @@ func _ready():
 	displayed_bkg.text = envi_names[curr_index]
 	background_display.texture = envi_display[curr_index]
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_button_mouse_entered():
-	Input.set_custom_mouse_cursor(pointer,Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(pointer, Input.CURSOR_ARROW)
 
 
 func _on_button_mouse_exited():
@@ -31,6 +26,7 @@ func _on_button_mouse_exited():
 
 
 func _on_right_button_pressed():
+	arrow_sfx.play()
 	if curr_index==len(envi_names)-1:
 		curr_index = 0
 	else:
@@ -40,6 +36,7 @@ func _on_right_button_pressed():
 
 
 func _on_left_button_pressed():
+	arrow_sfx.play()
 	if curr_index==0:
 		curr_index = len(envi_names)-1
 	else:

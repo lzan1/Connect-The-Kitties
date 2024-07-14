@@ -11,7 +11,6 @@ func _ready():
 
 func _on_body_exited(body):
 	if body is CharacterBody2D:
-		#print(is_connected("hide_background", bkg_appear))
 		#body.hide_background.disconnect(bkg_appear)
 		background.hide()
 

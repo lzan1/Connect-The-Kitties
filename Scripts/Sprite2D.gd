@@ -13,10 +13,6 @@ func _ready():
 	#print(position.x)
 	#print(texture.get_size()) # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func get_collion_size():
 	return collision_shape_2d.shape.get_size()
 	

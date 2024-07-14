@@ -1,4 +1,0 @@
-In testplayer and area_2d.gd
-Once the mask on layer 1 is removed, it triggers the _on_body_exited, which hides the background. This is after the background is 'shown' for the new cat, so the background isn't shown at all
-
-The reason why it enters ay(body) so much is because it enters ay(body) once for every body it enters/exits (max amount is # of areas, 7). 

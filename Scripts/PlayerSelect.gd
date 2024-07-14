@@ -3,24 +3,18 @@ var pointer = load("res://Assets/Pictures/pointinghand_100160.png")
 signal player_selected(p1, p2, p1_name, p2_name)
 signal backMain
 signal nextBkg
-@onready var cat_label_1 = $Player1/CatLabel1
-@onready var cat_label_2 = $Player2/CatLabel2
-@onready var line_edit_1 = $Player1/LineEdit1
-@onready var line_edit_2 = $Player2/LineEdit2
+@onready var cat_label_1 = $Control2/Player1/CatLabel1
+@onready var cat_label_2 = $Control2/Player2/CatLabel2
+@onready var line_edit_1 = $Control2/Player1/LineEdit1
+@onready var line_edit_2 = $Control2/Player2/LineEdit2
 @onready var diff_cat_menu = $DiffCatMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	diff_cat_menu.hide()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_back_mouse_entered():
-	Input.set_custom_mouse_cursor(pointer,Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(pointer, Input.CURSOR_ARROW)
 
 
 func _on_back_mouse_exited():
@@ -28,8 +22,7 @@ func _on_back_mouse_exited():
 
 
 func _on_next_mouse_entered():
-	Input.set_custom_mouse_cursor(pointer,Input.CURSOR_ARROW)
-
+	Input.set_custom_mouse_cursor(pointer, Input.CURSOR_ARROW)
 
 func _on_next_mouse_exited():
 	Input.set_custom_mouse_cursor(null)

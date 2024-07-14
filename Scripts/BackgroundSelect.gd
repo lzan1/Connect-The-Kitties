@@ -5,18 +5,8 @@ signal envi_selected(envi)
 signal backPlayer
 signal nextPlay
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_button_mouse_entered():
-	Input.set_custom_mouse_cursor(pointer,Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(pointer, Input.CURSOR_ARROW)
 
 
 func _on_button_mouse_exited():

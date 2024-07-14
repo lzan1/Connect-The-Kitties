@@ -9,21 +9,15 @@ var type_display := [preload("res://Assets/Pictures/img1cat.png"),
 var curr_index = 0
 @onready var displayed_cat = $DisplayedCat
 @onready var displayed_name = $Control/DisplayedName
+@onready var arrow_sfx = $arrow_sfx
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.grab_focus() 
 	displayed_name.text = type_names[curr_index]
 	displayed_cat.texture = type_display[curr_index]
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_button_mouse_entered():
-	Input.set_custom_mouse_cursor(pointer,Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(pointer, Input.CURSOR_ARROW)
 
 
 func _on_button_mouse_exited():
@@ -31,6 +25,7 @@ func _on_button_mouse_exited():
 
 
 func _on_button_pressed_lef():
+	arrow_sfx.play()
 	if curr_index==0:
 		curr_index = len(type_names)-1
 	else:
@@ -40,6 +35,7 @@ func _on_button_pressed_lef():
 
 
 func _on_button_pressed_right():
+	arrow_sfx.play()
 	if curr_index==len(type_names)-1:
 		curr_index = 0
 	else:

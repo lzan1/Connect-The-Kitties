@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkx22hryhgg7n"]
+[gd_scene load_steps=13 format=3 uid="uid://bkx22hryhgg7n"]
 
 [ext_resource type="Script" path="res://Scripts/carousel2.gd" id="1_lc1k2"]
 [ext_resource type="FontFile" uid="uid://bjm2ng4mj2k78" path="res://Assets/Fonts/Dongle-Bold.ttf" id="2_r8dsb"]
 [ext_resource type="Texture2D" uid="uid://nisteeispbkm" path="res://Assets/Pictures/selectLeft_2.png" id="2_ra7w7"]
 [ext_resource type="Texture2D" uid="uid://i22kygcecqd1" path="res://Assets/Pictures/selectRight_2.png" id="3_kxdjf"]
 [ext_resource type="Texture2D" uid="uid://dh2yeas2jumon" path="res://Assets/Pictures/img1cat.png" id="5_qrl01"]
+[ext_resource type="AudioStream" uid="uid://jc7kwvkvwcio" path="res://Assets/Audio/click1.mp3" id="6_k8fmy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y63h"]
 bg_color = Color(0.772549, 0.647059, 0.494118, 1)
@@ -51,14 +52,20 @@ Button/styles/pressed = SubResource("StyleBoxFlat_h0ipn")
 [node name="CatLabel2" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = -232.0
+offset_top = 256.0
+offset_right = -232.0
+offset_bottom = 256.0
 script = ExtResource("1_lc1k2")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(266, 55)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 266.0
-offset_bottom = 55.0
+offset_left = -170.0
+offset_top = 1.0
+offset_right = 96.0
+offset_bottom = 56.0
 theme = SubResource("Theme_07868")
 
 [node name="DisplayedName" type="Label" parent="Control"]
@@ -75,10 +82,10 @@ horizontal_alignment = 1
 [node name="left" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -64.0
-offset_top = 5.0
-offset_right = -24.0
-offset_bottom = 45.0
+offset_left = -234.0
+offset_top = 6.0
+offset_right = -194.0
+offset_bottom = 46.0
 
 [node name="Sprite2D" type="Sprite2D" parent="left"]
 position = Vector2(30.1638, 26.5)
@@ -96,10 +103,10 @@ theme = SubResource("Theme_tj5aj")
 [node name="right" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 340.0
-offset_top = 9.0
-offset_right = 380.0
-offset_bottom = 49.0
+offset_left = 170.0
+offset_top = 10.0
+offset_right = 210.0
+offset_bottom = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="right"]
 position = Vector2(27.599, 23.4423)
@@ -115,9 +122,14 @@ offset_bottom = 46.0
 theme = SubResource("Theme_05dbc")
 
 [node name="DisplayedCat" type="Sprite2D" parent="."]
-position = Vector2(155, 220)
+position = Vector2(-15, 221)
 scale = Vector2(0.082428, 0.082428)
 texture = ExtResource("5_qrl01")
+
+[node name="arrow_sfx" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-170, 1)
+stream = ExtResource("6_k8fmy")
+pitch_scale = 1.55
 
 [connection signal="mouse_entered" from="left/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="left/Button" to="." method="_on_button_mouse_exited"]
